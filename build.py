@@ -299,7 +299,13 @@ def build_project(i, p):
 
   <section class="panel" id="pdf" role="tabpanel" hidden>
     <iframe class="pdfframe" id="pdfframe" title="{escape(p["short"])} documentation PDF" data-src="overview.pdf#view=FitH"></iframe>
-    <p class="pdfnote">PDF not showing on your device? <a href="overview.pdf" target="_blank" rel="noopener">Open it in a new tab</a> or <a href="overview.pdf" download>download it</a> ({pdf_size}).</p>
+    <div class="pdfcard" id="pdfcard">
+      <div class="pdfcard-icon">📄</div>
+      <h3>{escape(p["short"])} documentation</h3>
+      <p>{p["pdf_pages"]} pages &middot; {pdf_size}. Opens in your phone's PDF viewer with full scrolling, zoom and download.</p>
+      <a class="btn primary big" href="overview.pdf" target="_blank" rel="noopener">Open full PDF</a>
+    </div>
+    <p class="pdfnote pdfnote-desk">PDF not showing? <a href="overview.pdf" target="_blank" rel="noopener">Open it in a new tab</a> &middot; <a href="overview.pdf" download="{escape(p["short"])}-documentation.pdf">Download</a> ({pdf_size})</p>
   </section>
 
   <section class="panel" id="both" role="tabpanel" hidden></section>
@@ -326,7 +332,13 @@ def build_project(i, p):
   var panelB = document.getElementById('both');
   var gap = document.createElement('div'); gap.style.height = '18px'; gap.className = 'gap';
 
-  function loadPdf(){{ if (!frame.getAttribute('src')) frame.setAttribute('src', frame.getAttribute('data-src')); }}
+  var isMobile = /Android|iPhone|iPad|iPod|Mobile|Silk/i.test(navigator.userAgent) || (navigator.maxTouchPoints > 1 && window.innerWidth < 900);
+  var card = document.getElementById('pdfcard');
+  document.documentElement.classList.toggle('is-mobile', isMobile);
+  function loadPdf(){{
+    if (isMobile) return;  // phones: use the "Open full PDF" button instead of an iframe
+    if (!frame.getAttribute('src')) frame.setAttribute('src', frame.getAttribute('data-src'));
+  }}
 
   function show(name){{
     Object.keys(tabs).forEach(function(k){{
@@ -335,6 +347,7 @@ def build_project(i, p):
     // reset: put video/pdf children back in their own panels
     if (panelB.contains(stageV)) {{ panelV.insertBefore(stageV, panelV.firstChild); panelV.appendChild(noteV); }}
     if (panelB.contains(frame))  {{ panelP.insertBefore(frame, panelP.firstChild); }}
+    if (panelB.contains(card))   {{ panelP.insertBefore(card, panelP.firstChild); }}
     panelV.hidden = name !== 'video';
     panelP.hidden = name !== 'pdf';
     panelB.hidden = name !== 'both';
@@ -344,7 +357,7 @@ def build_project(i, p):
       loadPdf();
       panelB.appendChild(stageV);
       panelB.appendChild(gap);
-      panelB.appendChild(frame);
+      panelB.appendChild(isMobile ? card : frame);
     }}
     try {{
       if (history.replaceState) history.replaceState(null, '', name === 'video' ? location.pathname : '#' + name);

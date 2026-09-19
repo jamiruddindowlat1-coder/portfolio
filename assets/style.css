@@ -158,3 +158,19 @@ img, video { max-width: 100%; display: block; }
   .all-mode .card .thumb { aspect-ratio: 16/9; min-height: 0; }
   .pdfframe { height: 70vh; }
 }
+
+/* ---------- PDF: phone-friendly card (iframes can't scroll/zoom PDFs on mobile) ---------- */
+.pdfcard { display: none; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 28px 20px; text-align: center; box-shadow: var(--shadow); }
+.pdfcard-icon { font-size: 44px; line-height: 1; }
+.pdfcard h3 { margin: 10px 0 6px; font-size: 19px; }
+.pdfcard p { color: var(--muted); font-size: 14.5px; margin: 0 auto 18px; max-width: 380px; }
+.btn.big { font-size: 16px; padding: 13px 22px; }
+.is-mobile .pdfframe { display: none; }
+.is-mobile .pdfcard { display: block; }
+.is-mobile .pdfnote-desk { display: none; }
+@media (max-width: 760px) {
+  .pdfframe { display: none; }
+  .pdfcard { display: block; }
+  .pdfnote-desk { display: none; }
+}
