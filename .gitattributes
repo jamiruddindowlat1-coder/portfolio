@@ -1,0 +1,5 @@
+# Treat media as binary so Git never tries to diff or convert line endings
+*.mp4 binary
+*.pdf binary
+*.jpg binary
+*.png binary

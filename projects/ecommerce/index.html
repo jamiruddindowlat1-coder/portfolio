@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Safiyan International ECommerce System (SIES) — Mohammed Jamir Uddin</title>
+<meta name="description" content="Daraz-style multi-vendor e-commerce marketplace. A full-stack, Daraz-style multi-vendor e-commerce marketplace built with ASP.NET Core Web API, Entity Framework Core (SQL Server), and React">
+<meta property="og:title" content="Safiyan International ECommerce System (SIES) — Mohammed Jamir Uddin">
+<meta property="og:description" content="Daraz-style multi-vendor e-commerce marketplace. A full-stack, Daraz-style multi-vendor e-commerce marketplace built with ASP.NET Core Web API, Entity Framework Core (SQL Server), and React">
+<link rel="stylesheet" href="../../assets/style.css">
+
+<script>
+(function(){
+  var t = localStorage.getItem('theme');
+  if (t) document.documentElement.setAttribute('data-theme', t);
+})();
+function toggleTheme(){
+  var cur = document.documentElement.getAttribute('data-theme');
+  var dark = cur ? cur === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+  var next = dark ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', next);
+  try { localStorage.setItem('theme', next); } catch(e){}
+}
+</script>
+
+</head>
+<body>
+<header class="topbar"><div class="wrap">
+  <a class="brand" href="../../">Mohammed Jamir Uddin</a>
+  <nav class="nav"><a href="../../projects/iums/">IUMS</a><a href="../../projects/hms/">HMS</a><a href="../../projects/iaps/">IAPS</a><a href="../../projects/ecommerce/">SIES</a><button type="button" onclick="toggleTheme()" aria-label="Toggle dark mode">◐</button></nav>
+</div></header>
+<main class="wrap">
+  <div class="crumb"><a href="../../">Portfolio</a> / SIES</div>
+  <h1 class="ptitle">Safiyan International ECommerce System (SIES)</h1>
+  <p class="plead">A full-stack, Daraz-style multi-vendor e-commerce marketplace built with ASP.NET Core Web API, Entity Framework Core (SQL Server), and React + Vite. Features real payment gateways (SSLCommerz &amp; Stripe), a validated order pipeline, commission engine, PDF/Excel exports, and 3 role-based portals.</p>
+
+  <div class="tabs" role="tablist">
+    <button type="button" role="tab" id="t-video" aria-selected="true"  aria-controls="video">▶ Video</button>
+    <button type="button" role="tab" id="t-pdf"   aria-selected="false" aria-controls="pdf">📄 PDF</button>
+    <button type="button" role="tab" id="t-both"  aria-selected="false" aria-controls="both">Show both</button>
+  </div>
+
+  <section class="panel" id="video" role="tabpanel">
+    <div class="stage">
+      <video id="vid" controls preload="metadata" poster="poster.jpg" playsinline>
+        <source src="demo.mp4" type="video/mp4">
+        Your browser does not support video. <a href="demo.mp4">Download the video</a>.
+      </video>
+    </div>
+    <p class="pdfnote"><a href="demo.mp4" download>Download video</a> (9.5 MB)</p>
+  </section>
+
+  <section class="panel" id="pdf" role="tabpanel" hidden>
+    <iframe class="pdfframe" id="pdfframe" title="SIES documentation PDF" data-src="overview.pdf#view=FitH"></iframe>
+    <p class="pdfnote">PDF not showing on your device? <a href="overview.pdf" target="_blank" rel="noopener">Open it in a new tab</a> or <a href="overview.pdf" download>download it</a> (13.3 MB).</p>
+  </section>
+
+  <section class="panel" id="both" role="tabpanel" hidden></section>
+
+  <div class="meta">
+    <div class="box" style="grid-column:1/-1"><small>Backend</small><div style="font-weight:500">ASP.NET Core Web API (.NET 8) · Entity Framework Core · SQL Server · SSLCommerz (session + IPN validation) · Stripe (PaymentIntent + HMAC webhook) · Cash on Delivery · JWT Bearer · RBAC (Admin / Vendor / Customer)</div></div>
+    <div class="box" style="grid-column:1/-1"><small>Frontend</small><div style="font-weight:500">React 18 · Vite · Context API (Auth / Cart / Wishlist) · Axios</div></div>
+    
+    <div class="box"><small>Screenshots</small><div>87</div></div><div class="box"><small>API controllers</small><div>15+</div></div><div class="box"><small>Admin modules</small><div>9</div></div><div class="box"><small>Role portals</small><div>3</div></div><div class="box"><small>Documentation</small><div>88 pages (PDF)</div></div><div class="box"><small>Walkthrough video</small><div>7:20 min</div></div>
+  </div>
+
+  <div class="pager"><a class="btn" href="../../projects/iaps/">← IAPS</a><a class="btn" href="../../#all">All projects</a><span></span></div>
+</main>
+<footer class="foot"><div class="wrap">
+  <div>Mohammed Jamir Uddin · Full-Stack Software Developer · .NET Core &amp; React</div>
+  <div><a href="mailto:jamiruddindowlat@gmail.com">jamiruddindowlat@gmail.com</a> · +880 1715-487122 · Chattogram, Bangladesh</div>
+</div></footer>
+<script>
+(function(){
+  var tabs = { video: 't-video', pdf: 't-pdf', both: 't-both' };
+  var frame = document.getElementById('pdfframe');
+  var vid = document.getElementById('vid');
+  var stageV = document.querySelector('#video .stage');
+  var noteV  = document.querySelector('#video .pdfnote');
+  var panelV = document.getElementById('video');
+  var panelP = document.getElementById('pdf');
+  var panelB = document.getElementById('both');
+  var gap = document.createElement('div'); gap.style.height = '18px'; gap.className = 'gap';
+
+  function loadPdf(){ if (!frame.getAttribute('src')) frame.setAttribute('src', frame.getAttribute('data-src')); }
+
+  function show(name){
+    Object.keys(tabs).forEach(function(k){
+      document.getElementById(tabs[k]).setAttribute('aria-selected', k === name);
+    });
+    // reset: put video/pdf children back in their own panels
+    if (panelB.contains(stageV)) { panelV.insertBefore(stageV, panelV.firstChild); panelV.appendChild(noteV); }
+    if (panelB.contains(frame))  { panelP.insertBefore(frame, panelP.firstChild); }
+    panelV.hidden = name !== 'video';
+    panelP.hidden = name !== 'pdf';
+    panelB.hidden = name !== 'both';
+    if (name !== 'video') { try { vid.pause(); } catch(e){} }
+    if (name === 'pdf') loadPdf();
+    if (name === 'both') {
+      loadPdf();
+      panelB.appendChild(stageV);
+      panelB.appendChild(gap);
+      panelB.appendChild(frame);
+    }
+    try {
+      if (history.replaceState) history.replaceState(null, '', name === 'video' ? location.pathname : '#' + name);
+    } catch(e) { /* file:// in some browsers: URL just won't update, everything else works */ }
+  }
+  Object.keys(tabs).forEach(function(k){
+    document.getElementById(tabs[k]).onclick = function(){ show(k); };
+  });
+  var h = (location.hash || '').replace('#','');
+  show(tabs[h] ? h : 'video');
+})();
+</script>
+</body></html>

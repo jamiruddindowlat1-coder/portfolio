@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mohammed Jamir Uddin — Project Portfolio</title>
+<meta name="description" content="Project portfolio of Mohammed Jamir Uddin — Full-Stack Software Developer · .NET Core &amp; React.">
+<meta property="og:title" content="Mohammed Jamir Uddin — Project Portfolio">
+<meta property="og:description" content="Project portfolio of Mohammed Jamir Uddin — Full-Stack Software Developer · .NET Core &amp; React.">
+<link rel="stylesheet" href="assets/style.css">
+
+<script>
+(function(){
+  var t = localStorage.getItem('theme');
+  if (t) document.documentElement.setAttribute('data-theme', t);
+})();
+function toggleTheme(){
+  var cur = document.documentElement.getAttribute('data-theme');
+  var dark = cur ? cur === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+  var next = dark ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', next);
+  try { localStorage.setItem('theme', next); } catch(e){}
+}
+</script>
+
+</head>
+<body>
+<header class="topbar"><div class="wrap">
+  <a class="brand" href="">Mohammed Jamir Uddin</a>
+  <nav class="nav"><a href="projects/iums/">IUMS</a><a href="projects/hms/">HMS</a><a href="projects/iaps/">IAPS</a><a href="projects/ecommerce/">SIES</a><button type="button" onclick="toggleTheme()" aria-label="Toggle dark mode">◐</button></nav>
+</div></header>
+<main class="wrap">
+  <section class="hero">
+    <h1>Mohammed Jamir Uddin</h1>
+    <p>Full-Stack Software Developer · .NET Core &amp; React. Four complete, solo-built enterprise systems — each with a walkthrough video and a full documentation PDF.</p>
+    <div class="chips">
+      <span class="chip">ASP.NET Core</span><span class="chip">Entity Framework Core</span>
+      <span class="chip">SQL Server</span><span class="chip">React</span><span class="chip">Vite</span>
+      <span class="chip">JWT / RBAC</span>
+    </div>
+  </section>
+
+  <div class="toolbar">
+    <h2>Projects</h2>
+    <div class="seg" role="group" aria-label="Layout">
+      <button type="button" id="v-grid" aria-pressed="true">Grid</button>
+      <button type="button" id="v-list" aria-pressed="false">Show all</button>
+    </div>
+  </div>
+
+  <section class="grid" id="grid">
+<article class="card" id="iums">
+  <a class="thumb" href="projects/iums/" aria-label="Open IUMS project">
+    <img src="projects/iums/poster.jpg" alt="Sinan International University Management System video preview" loading="lazy">
+    <div class="play"><span>▶</span></div><span class="chip" style="position:absolute;right:10px;bottom:10px;background:rgba(0,0,0,.7);color:#fff;border:0">10:24</span>
+  </a>
+  <div class="body">
+    <h3><a href="projects/iums/">Sinan International University Management System</a></h3>
+    <p>Full-stack ERP for higher-education institutions.</p>
+    <div class="stats"><span><b>20</b> functional modules</span><span><b>263+</b> screens documented</span><span><b>7</b> role-based portals</span></div>
+    <div class="actions">
+      <a class="btn primary" href="projects/iums/#video">▶ Watch video</a>
+      <a class="btn" href="projects/iums/#pdf">📄 View PDF</a>
+    </div>
+  </div>
+</article>
+<article class="card" id="hms">
+  <a class="thumb" href="projects/hms/" aria-label="Open HMS project">
+    <img src="projects/hms/poster.jpg" alt="Sayan Hospital Management System video preview" loading="lazy">
+    <div class="play"><span>▶</span></div><span class="chip" style="position:absolute;right:10px;bottom:10px;background:rgba(0,0,0,.7);color:#fff;border:0">6:34</span>
+  </a>
+  <div class="body">
+    <h3><a href="projects/hms/">Sayan Hospital Management System</a></h3>
+    <p>Enterprise healthcare platform covering the entire hospital lifecycle.</p>
+    <div class="stats"><span><b>15+</b> functional modules</span><span><b>50+</b> screens documented</span><span><b>5</b> role-based portals</span></div>
+    <div class="actions">
+      <a class="btn primary" href="projects/hms/#video">▶ Watch video</a>
+      <a class="btn" href="projects/hms/#pdf">📄 View PDF</a>
+    </div>
+  </div>
+</article>
+<article class="card" id="iaps">
+  <a class="thumb" href="projects/iaps/" aria-label="Open IAPS project">
+    <img src="projects/iaps/poster.jpg" alt="Ainan International Auto Parts System video preview" loading="lazy">
+    <div class="play"><span>▶</span></div><span class="chip" style="position:absolute;right:10px;bottom:10px;background:rgba(0,0,0,.7);color:#fff;border:0">3:48</span>
+  </a>
+  <div class="body">
+    <h3><a href="projects/iaps/">Ainan International Auto Parts System</a></h3>
+    <p>Point-of-Sale &amp; ERP platform for auto parts businesses.</p>
+    <div class="stats"></div>
+    <div class="actions">
+      <a class="btn primary" href="projects/iaps/#video">▶ Watch video</a>
+      <a class="btn" href="projects/iaps/#pdf">📄 View PDF</a>
+    </div>
+  </div>
+</article>
+<article class="card" id="ecommerce">
+  <a class="thumb" href="projects/ecommerce/" aria-label="Open SIES project">
+    <img src="projects/ecommerce/poster.jpg" alt="Safiyan International ECommerce System (SIES) video preview" loading="lazy">
+    <div class="play"><span>▶</span></div><span class="chip" style="position:absolute;right:10px;bottom:10px;background:rgba(0,0,0,.7);color:#fff;border:0">7:20</span>
+  </a>
+  <div class="body">
+    <h3><a href="projects/ecommerce/">Safiyan International ECommerce System (SIES)</a></h3>
+    <p>Daraz-style multi-vendor e-commerce marketplace.</p>
+    <div class="stats"><span><b>87</b> screenshots</span><span><b>15+</b> api controllers</span><span><b>9</b> admin modules</span></div>
+    <div class="actions">
+      <a class="btn primary" href="projects/ecommerce/#video">▶ Watch video</a>
+      <a class="btn" href="projects/ecommerce/#pdf">📄 View PDF</a>
+    </div>
+  </div>
+</article>
+  </section>
+</main>
+<footer class="foot"><div class="wrap">
+  <div>Mohammed Jamir Uddin · Full-Stack Software Developer · .NET Core &amp; React</div>
+  <div><a href="mailto:jamiruddindowlat@gmail.com">jamiruddindowlat@gmail.com</a> · +880 1715-487122 · Chattogram, Bangladesh</div>
+</div></footer>
+<script>
+(function(){
+  var body = document.body, g = document.getElementById('v-grid'), l = document.getElementById('v-list');
+  function set(mode){
+    body.classList.toggle('all-mode', mode === 'list');
+    g.setAttribute('aria-pressed', mode !== 'list');
+    l.setAttribute('aria-pressed', mode === 'list');
+  }
+  g.onclick = function(){ set('grid'); };
+  l.onclick = function(){ set('list'); };
+  if (location.hash === '#all') set('list');
+})();
+</script>
+</body></html>
