@@ -51,14 +51,14 @@ function toggleTheme(){
   </section>
 
   <section class="panel" id="pdf" role="tabpanel" hidden>
-    <iframe class="pdfframe" id="pdfframe" title="HMS documentation PDF" data-src="overview.pdf#view=FitH"></iframe>
+    <iframe class="pdfframe" id="pdfframe" title="HMS documentation PDF" data-src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/jamiruddindowlat1-coder/portfolio/main/projects/hms/overview.pdf&embedded=true"></iframe>
     <div class="pdfcard" id="pdfcard">
       <div class="pdfcard-icon">📄</div>
       <h3>HMS documentation</h3>
       <p>74 pages &middot; 7.3 MB. Opens in your phone's PDF viewer with full scrolling, zoom and download.</p>
-      <a class="btn primary big" href="overview.pdf" target="_blank" rel="noopener">Open full PDF</a>
+      <a class="btn primary big" href="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/jamiruddindowlat1-coder/portfolio/main/projects/hms/overview.pdf&embedded=true" target="_blank" rel="noopener">Open full PDF</a>
     </div>
-    <p class="pdfnote pdfnote-desk">PDF not showing? <a href="overview.pdf" target="_blank" rel="noopener">Open it in a new tab</a> &middot; <a href="overview.pdf" download="HMS-documentation.pdf">Download</a> (7.3 MB)</p>
+    <p class="pdfnote pdfnote-desk">PDF not showing? <a href="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/jamiruddindowlat1-coder/portfolio/main/projects/hms/overview.pdf&embedded=true" target="_blank" rel="noopener">Open in new tab</a> &middot; <a href="overview.pdf" download="HMS-documentation.pdf">Download</a> (7.3 MB)</p>
   </section>
 
   <section class="panel" id="both" role="tabpanel" hidden></section>
@@ -92,7 +92,6 @@ function toggleTheme(){
   var card = document.getElementById('pdfcard');
   document.documentElement.classList.toggle('is-mobile', isMobile);
   function loadPdf(){
-    if (isMobile) return;  // phones: use the "Open full PDF" button instead of an iframe
     if (!frame.getAttribute('src')) frame.setAttribute('src', frame.getAttribute('data-src'));
   }
 
