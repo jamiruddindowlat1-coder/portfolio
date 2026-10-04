@@ -27,7 +27,7 @@ function toggleTheme(){
 <body>
 <header class="topbar"><div class="wrap">
   <a class="brand" href="../../">Mohammed Jamir Uddin</a>
-  <nav class="nav"><a href="../../projects/iums/">IUMS</a><a href="../../projects/hms/">HMS</a><a href="../../projects/iaps/">IAPS</a><a href="../../projects/ecommerce/">SIES</a><button type="button" onclick="toggleTheme()" aria-label="Toggle dark mode">◐</button></nav>
+  <nav class="nav"><a href="../../projects/iums/">IUMS</a><a href="../../projects/hms/">HMS</a><a href="../../projects/iaps/">IAPS</a><a href="../../projects/ecommerce/">SIES</a><a href="../../projects/rony/">RONY</a><button type="button" onclick="toggleTheme()" aria-label="Toggle dark mode">◐</button></nav>
 </div></header>
 <main class="wrap">
   <div class="crumb"><a href="../../">Portfolio</a> / IAPS</div>
@@ -51,14 +51,14 @@ function toggleTheme(){
   </section>
 
   <section class="panel" id="pdf" role="tabpanel" hidden>
-    <iframe class="pdfframe" id="pdfframe" title="IAPS documentation PDF" data-src="https://drive.google.com/file/d/14nENvdtae7CmP7zgE5Y_s67rJ3HoiimZ/preview"></iframe>
+    <iframe class="pdfframe" id="pdfframe" title="IAPS documentation PDF" data-src="overview.pdf#view=FitH"></iframe>
     <div class="pdfcard" id="pdfcard">
       <div class="pdfcard-icon">📄</div>
       <h3>IAPS documentation</h3>
-      <p>27 pages &middot; 3.6 MB. Opens in your phone's PDF viewer with full scrolling, zoom and download.</p>
-      <a class="btn primary big" href="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/jamiruddindowlat1-coder/portfolio/main/projects/iaps/overview.pdf&embedded=true&v=iaps" target="_blank" rel="noopener">Open full PDF</a>
+      <p>27 pages &middot; 2.2 MB. Opens in your phone's PDF viewer with full scrolling, zoom and download.</p>
+      <a class="btn primary big" href="overview.pdf" target="_blank" rel="noopener">Open full PDF</a>
     </div>
-    <p class="pdfnote pdfnote-desk">PDF not showing? <a href="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/jamiruddindowlat1-coder/portfolio/main/projects/iaps/overview.pdf&embedded=true&v=iaps" target="_blank" rel="noopener">Open in new tab</a> &middot; <a href="overview.pdf" download="IAPS-documentation.pdf">Download</a> (3.6 MB)</p>
+    <p class="pdfnote pdfnote-desk">PDF not showing? <a href="overview.pdf" target="_blank" rel="noopener">Open it in a new tab</a> &middot; <a href="overview.pdf" download="IAPS-documentation.pdf">Download</a> (2.2 MB)</p>
   </section>
 
   <section class="panel" id="both" role="tabpanel" hidden></section>
@@ -92,6 +92,7 @@ function toggleTheme(){
   var card = document.getElementById('pdfcard');
   document.documentElement.classList.toggle('is-mobile', isMobile);
   function loadPdf(){
+    if (isMobile) return;  // phones: use the "Open full PDF" button instead of an iframe
     if (!frame.getAttribute('src')) frame.setAttribute('src', frame.getAttribute('data-src'));
   }
 

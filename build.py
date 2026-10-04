@@ -100,6 +100,21 @@ PROJECTS = [
         "stats": [("87", "Screenshots"), ("15+", "API controllers"), ("9", "Admin modules"), ("3", "Role portals")],
         "pdf_pages": 88,
     },
+    {
+        "slug": "rony",
+        "name": "RONY International Accounting Software",
+        "short": "RONY",
+        "tagline": "Multi-branch accounting, payroll, inventory and financial management system.",
+        "description": (
+            "A complete, full-stack multi-branch Accounting, Payroll, Inventory and Financial "
+            "Management System, with 14 modules and 89+ entities unified in one secure platform."
+        ),
+        "backend": "ASP.NET Core Web API (.NET) \u00b7 Entity Framework Core \u00b7 Microsoft SQL Server \u00b7 "
+                   "JWT Authentication \u00b7 Repository / Service layered architecture",
+        "frontend": "React (Vite) \u00b7 React Router \u00b7 Axios \u00b7 Config-driven dynamic CRUD \u00b7 Excel / PDF export",
+        "stats": [("14", "Functional modules"), ("89+", "Entities"), ("90", "Screens documented")],
+        "pdf_pages": 92,
+    },
 ]
 
 # Video durations are read at build time if ffprobe is available (optional).
@@ -210,7 +225,7 @@ def build_home():
 <main class="wrap">
   <section class="hero">
     <h1>{escape(OWNER["name"])}</h1>
-    <p>{escape(OWNER["title"])}. Four complete, solo-built enterprise systems — each with a walkthrough video and a full documentation PDF.</p>
+    <p>{escape(OWNER["title"])}. Five complete, solo-built enterprise systems — each with a walkthrough video and a full documentation PDF.</p>
     <div class="chips">
       <span class="chip">ASP.NET Core</span><span class="chip">Entity Framework Core</span>
       <span class="chip">SQL Server</span><span class="chip">React</span><span class="chip">Vite</span>
